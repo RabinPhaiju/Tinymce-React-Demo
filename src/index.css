@@ -1,13 +1,115 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+/* @tailwind base; */
+/* @layer base {
+  .no-tailwindcss-base {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: revert;
+      font-weight: revert;
+    }
+
+    ol,
+    ul {
+      list-style: revert;
+      margin: revert;
+      padding: revert;
+    }
+  }
+} */
+@tailwind components; 
+@tailwind utilities;
+
+.main{
+  width: 1200px;
+  margin: 0 auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.innerHtml{
+  border:1px solid black;
+  padding: 0 14px;
+  font-family: sans-serif;
+  width: 1200px;
+  margin: 0 auto;
+}
+blockquote {
+  border: 0;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  margin: 2.5em auto;
+
+  padding: 0 2rem;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+blockquote::before {
+  color: #000000;
+  content: '“';
+  font-family: 'georgia';
+  font-size: 4em;
+  left: 0%;
+  pointer-events: none;
+  position: absolute;
+  top: -.75em;
+}
+
+blockquote::after {
+  bottom: -1.2em;
+  color: #000000;
+  content: '”';
+  font-family: 'georgia';
+  font-size: 4em;
+  pointer-events: none;
+  position: absolute;
+  right: 0%;
+}
+/* Note that the figure element needs some custom CSS added to render properly. */
+figure {
+  margin: 0;
+  padding: 0;
+}
+figure.image {
+  display: inline-block;
+  /* border: 1px solid gray; */
+  margin: 0 2px 0 1px;
+  /* background: #f5f2f0; */
+}
+figure.align-center {
+  width: 100%;
+}
+
+figure.align-left {
+  /* margin-left: 2%; */
+  float: left;
+}
+figure.align-center img {
+  display: block; 
+  margin: 2px auto !important;
+}
+figure.align-center figcaption {
+  display: block; 
+  text-align: center;
+  margin: 8px auto !important;
+}
+figure.align-right {
+  /* margin-right: 2%; */
+  float: right;
+}
+
+figure.image img {
+  /* margin: 8px 6px; */
+  /* padding: 8px 16px 0 6px; */
+}
+
+figure.image figcaption {
+  margin: 6px 8px 6px 8px;
+  text-align: center;
 }
