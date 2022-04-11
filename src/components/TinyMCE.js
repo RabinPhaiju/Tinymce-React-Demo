@@ -15,7 +15,7 @@ import quickbar_style from "./editor_init/quickbar_style"
 import toolbar_style from "./editor_init/toolbar_style"
 import content_style from "./editor_init/content_style"
 
-const TinyMCE = () => {
+const TinyMCE = ({ id }) => {
   const [initialValue, setInitialValue] = useState(undefined)
   const [innerHtml, setInnerHtml] = useState("")
   const editorRef = useRef(null)
@@ -48,7 +48,7 @@ const TinyMCE = () => {
       <form>
         <Editor
           // ****** Configuring editor source
-          apiKey='w2pjq698fbk2koqkcvcxonqoxwvq3elmk4qigopo8ijkehkw'
+          // apiKey='w2pjq698fbk2koqkcvcxonqoxwvq3elmk4qigopo8ijkehkw'
           // cloudChannel='5-stable' // The channel of TinyMCE used when loading from Tiny Cloud.
           scriptLoading={
             {
@@ -57,10 +57,11 @@ const TinyMCE = () => {
               // delay: 1000, //delay in milliseconds.
             }
           }
-          tinymceScriptSrc='https://cdn.tiny.cloud/1/w2pjq698fbk2koqkcvcxonqoxwvq3elmk4qigopo8ijkehkw/tinymce/5/tinymce.min.js' //to specify an external version of TinyMCE to lazy load.
+          // tinymceScriptSrc='https://cdn.tiny.cloud/1/w2pjq698fbk2koqkcvcxonqoxwvq3elmk4qigopo8ijkehkw/tinymce/5/tinymce.min.js'
           // tinymceScriptSrc='https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'
           // ****** Configuring page elements
-          id='my_tinymce'
+          // id='my_tinymce'
+          id={id}
           // inline={true}
           inline={false} //later //Load the editor as part of the page; sharing the page styles and selection.
           tagName='textarea' //The tag used for creating an inline editor. Ignored for a classic (iframe) editor.

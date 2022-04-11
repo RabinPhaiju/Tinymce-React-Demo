@@ -5,8 +5,10 @@ import "./App.css"
 function App() {
   return (
     <div className='App'>
-      <TinyMCE />
-      {/* <TinyMCEInline /> */}
+      <TinyMCE id='test1' />
+      {/* <p>Test</p> */}
+      {/* <TinyMCE id='test2' /> */}
+      {/* <TinyMCEInline id='inline' /> */}
     </div>
   )
 }
