@@ -18,7 +18,7 @@ const toolbarStyle = {
     // tableprops tablerowprops tablecellprops |\
     //  tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol |\
     // eslint-disable-next-line no-multi-str
-    "table tabledelete | quickimage quicktable | save code | \
+    "table tabledelete | quickimage quicktable | save| \
              help | print preview anchor searchreplace visualblocks emoticons |\
             autolink-notworking | hr pagebreak nonbreaking| restoredraft | ltr rtl | fullscreen template myCustomToolbarButton",
 }
