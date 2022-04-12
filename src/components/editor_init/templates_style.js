@@ -10,8 +10,9 @@ const templates_style = {
   },
   templates: [
     { title: "Some title 1", description: "Some desc 1", content: "My content" },
+    { title: "HTML Slider Page Page", description: "Some desc 2", url: "./development.html" },
     {
-      title: "React Component",
+      title: "React Component flex",
       description: "This is react component",
       content: ReactDOMServer.renderToStaticMarkup(<Test />),
     },
@@ -20,7 +21,6 @@ const templates_style = {
       description: "Your name and staff_id",
       content: "<p>Name: {$username}, StaffID: {$staff_id}</p>",
     },
-    { title: "HTML Page", description: "Some desc 2", url: "development.html" },
     {
       title: "Cdate",
       description: "cdate",

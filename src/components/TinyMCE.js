@@ -16,6 +16,7 @@ import toolbar_style from "./editor_init/toolbar_style"
 import content_style from "./editor_init/content_style"
 
 const TinyMCE = ({ id }) => {
+  const [isEditorLoading, setIsEditorLoading] = useState(true)
   const [initialValue, setInitialValue] = useState(undefined)
   const [innerHtml, setInnerHtml] = useState("")
   const editorRef = useRef(null)
@@ -45,6 +46,7 @@ const TinyMCE = ({ id }) => {
 
   return (
     <div className='main'>
+      {isEditorLoading && <div>Loading...</div>}
       <form>
         <Editor
           // ****** Configuring editor source
@@ -70,6 +72,7 @@ const TinyMCE = ({ id }) => {
           init={{
             init_instance_callback: function (editor) {
               console.log("Editor: " + editor.id + " is now initialized.")
+              setIsEditorLoading(false)
             },
             // convert_fonts_to_spans: false,
             // element_format: "html",
