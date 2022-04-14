@@ -43,6 +43,17 @@ const TinyMCE = ({ id }) => {
       setInnerHtml(content)
     }
   }
+  useEffect(() => {
+
+    const existingScript = document.getElementById('test-content')
+    if (existingScript) {
+      console.log(existingScript)
+      existingScript.onclick = () => {
+        existingScript.innerHTML = "You have clicked me!"
+      }
+    }
+  }, [innerHtml])
+
 
   return (
     <div className='main'>
@@ -166,8 +177,8 @@ const TinyMCE = ({ id }) => {
           // onEditorChange={(newText) => handleEditorChange(newText)} // An event handler for notifying when the editor is about to create an undo level, and preventing it if required.
           onInit={(evt, editor) => (editorRef.current = editor)} // An event handler for notifying when the editor has initialized.
           onDirty={() => setDirty(true)} // An event handler for notifying when the editor becomes dirty.
-          //https://www.tiny.cloud/docs/integrations/react/#usingthetinymcereactcomponentasacontrolledcomponent
-          // *** controlled component // https://www.tiny.cloud/docs/integrations/react/#usingthetinymcereactcomponentasacontrolledcomponent
+        //https://www.tiny.cloud/docs/integrations/react/#usingthetinymcereactcomponentasacontrolledcomponent
+        // *** controlled component // https://www.tiny.cloud/docs/integrations/react/#usingthetinymcereactcomponentasacontrolledcomponent
         />
         <button name='submitbtn' onClick={save} disabled={!dirty}>
           Save

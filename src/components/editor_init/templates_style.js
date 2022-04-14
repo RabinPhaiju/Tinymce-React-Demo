@@ -9,8 +9,12 @@ const templates_style = {
     staff_id: "991234",
   },
   templates: [
+    {
+      title: 'Test Template',
+      description: 'This is my template.',
+      content: '<p>Hello, <span id="test-content">this statement will be replaced.</span></p>'
+    },
     { title: "Some title 1", description: "Some desc 1", content: "My content" },
-    { title: "HTML Slider Page Page", description: "Some desc 2", url: "./development.html" },
     {
       title: "React Component flex",
       description: "This is react component",
