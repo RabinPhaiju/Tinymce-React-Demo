@@ -15,23 +15,17 @@ import quickbar_style from "./editor_init/quickbar_style"
 import toolbar_style from "./editor_init/toolbar_style"
 import content_style from "./editor_init/content_style"
 
-const TinyMCE = ({ id }) => {
-  const [isEditorLoading, setIsEditorLoading] = useState(true)
+const TinyMCE = ({ id,content="teest",onEditorChange }) => {
+  const [isEditorLoading, setIsEditorLoading] = useState(false)
   const [initialValue, setInitialValue] = useState(undefined)
   const [innerHtml, setInnerHtml] = useState("")
   const editorRef = useRef(null)
   const [dirty, setDirty] = useState(false)
   useEffect(() => setDirty(false), [initialValue])
   useEffect(() => {
-    // a real application might do a fetch request here to get the content
-    setTimeout(
-      () => setInitialValue('<p style="text-align: left;"><strong>Initial contents</strong></p>'),
-      1500
-    )
-  }, [])
-  const handleEditorChange = (newText) => {
-    console.log("Content was updated:", newText)
-  }
+      setInitialValue(`<p style="text-align: left;"><strong>${content}</strong></p>`)
+  }, [content])
+
   const save = () => {
     console.log("save")
     if (editorRef.current) {
@@ -82,7 +76,7 @@ const TinyMCE = ({ id }) => {
           // ***** Configuring editor settings
           init={{
             init_instance_callback: function (editor) {
-              console.log("Editor: " + editor.id + " is now initialized.")
+              // console.log("Editor: " + editor.id + " is now initialized.")
               setIsEditorLoading(false)
             },
             // convert_fonts_to_spans: false,
@@ -96,7 +90,7 @@ const TinyMCE = ({ id }) => {
             ///
 
             deprecation_warnings: false,
-            height: "60vh",
+            maxHeight: "100vh",
             width: "100%",
             // max_height: "100vh",
             // max_width: "100vw",
@@ -174,7 +168,7 @@ const TinyMCE = ({ id }) => {
           //   "<p>This is the initial content of the editor</p>" +
           //   ReactDOMServer.renderToStaticMarkup(<Test />)
           // } // Sets the HTML content of the editor when operating as a controlled component.
-          // onEditorChange={(newText) => handleEditorChange(newText)} // An event handler for notifying when the editor is about to create an undo level, and preventing it if required.
+          onEditorChange={(newText) => onEditorChange(id,newText)} // An event handler for notifying when the editor is about to create an undo level, and preventing it if required.
           onInit={(evt, editor) => (editorRef.current = editor)} // An event handler for notifying when the editor has initialized.
           onDirty={() => setDirty(true)} // An event handler for notifying when the editor becomes dirty.
         //https://www.tiny.cloud/docs/integrations/react/#usingthetinymcereactcomponentasacontrolledcomponent
