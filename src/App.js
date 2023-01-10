@@ -1,5 +1,6 @@
 import React,{useState} from "react"
 import TinyMCE from "./components/TinyMCE"
+import TinyMCEInline from "./components/TinyMCEInline"
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import "./App.css"
 import { useEffect } from "react"
@@ -89,50 +90,55 @@ function App() {
 
   const onEditorChange = (id,content) => {
     if(submitItems.length>0){
-      setSubmitItems(prev=>[...prev.map(p=>p.id==id?{...p,content:content}:p)])
+      setSubmitItems(prev=>[...prev.map(p=>p.id===id?{...p,content:content}:p)])
     }else{
       setSubmitItems(items)
     }
   }
 
   return (
-    // <div className='App'>
-    // <div style={{paddingTop:'20px',backgroundColor:'gray'}}>
-    //   <TinyMCE id='test1' />
-    // </div> 
-    //  <div style={{paddingTop:'20px',backgroundColor:'gray'}}>
-    //   <TinyMCE id='test2' />
-    // </div>
-    //   {/* <TinyMCEInline id='inline' /> */}
-    // </div>
     <div>
-    <button onClick={addNewItem}>Add new</button>
-      <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable droppableId="droppable">
-          {(provided, snapshot) => (
-            <div {...provided.droppableProps} ref={provided.innerRef} style={getListStyle(snapshot.isDraggingOver)}
-            >
-              {items.map((item, index) => (
-                <Draggable key={item.id} draggableId={item.id} index={index}>
-                  {(provided, snapshot) => (
-                    <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}
-                      style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}>
-                       <TinyMCE id={item.id} content={item.content} onEditorChange={onEditorChange} />
-                    </div>
-                  )}
-                </Draggable>
-              ))}
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable>
-      </DragDropContext>
+        <div className='App'>
+            {/* <div style={{paddingTop:'20px',backgroundColor:'gray'}}>
+              <TinyMCE id='test1' />
+            </div> 
+            <div style={{paddingTop:'20px',backgroundColor:'gray'}}>
+              <TinyMCE id='test2' />
+            </div> */}
+          {/* <TinyMCEInline id='inline' /> */}
+        </div>
+        
+    <div>
+      <button onClick={addNewItem}>Add new</button>
+        <DragDropContext onDragEnd={onDragEnd}>
+          <Droppable droppableId="droppable">
+            {(provided, snapshot) => (
+              <div {...provided.droppableProps} ref={provided.innerRef} style={getListStyle(snapshot.isDraggingOver)}
+              >
+                {items.map((item, index) => (
+                  <Draggable key={item.id} draggableId={item.id} index={index}>
+                    {(provided, snapshot) => (
+                      <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}
+                        style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}>
+                        <TinyMCE id={item.id} content={item.content} onEditorChange={onEditorChange} />
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </DragDropContext>
+      </div>
 
       {/* <div>
-      {items.map((item, index) => (
-        <div key={item.id}>
-        <TinyMCE id={item.id} content={item.content} onEditorChange={onEditorChange} />
-              </div>))}</div> */}
+        {items.map((item, index) => (
+          <div key={item.id}>
+          <TinyMCE id={item.id} content={item.content} onEditorChange={onEditorChange} />
+                </div>))}
+      </div> */}
+      
       </div>
   )
 }

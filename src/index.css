@@ -26,7 +26,7 @@
 @tailwind utilities;
 
 .main{
-  width: 1200px;
+  /* width: 1200px; */
   margin: 0 auto;
 }
 
@@ -34,7 +34,7 @@
   border:1px solid black;
   padding: 0 14px;
   font-family: sans-serif;
-  width: 1200px;
+  /* width: 1200px; */
   margin: 0 auto;
 }
 blockquote {

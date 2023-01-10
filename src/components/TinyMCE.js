@@ -21,12 +21,16 @@ const TinyMCE = ({ id,content="teest",onEditorChange }) => {
   const [innerHtml, setInnerHtml] = useState("")
   const editorRef = useRef(null)
   const [dirty, setDirty] = useState(false)
+
+  const random_pin = Math.floor(Math.random() * 10000)
+
   useEffect(() => setDirty(false), [initialValue])
   useEffect(() => {
       setInitialValue(`<p style="text-align: left;"><strong>${content}</strong></p>`)
   }, [content])
 
-  const save = () => {
+  const save = (e) => {
+    e.preventDefault()
     console.log("save")
     if (editorRef.current) {
       const content = editorRef.current.getContent()
@@ -104,7 +108,7 @@ const TinyMCE = ({ id,content="teest",onEditorChange }) => {
             // preview_styles: "font-size color",
             // icons_url: "https://www.example.com/icons/material/icons.js", // load icon pack
             // icons: "material",
-            draggable_modal: true, //The modal window can be dragged by the header.
+            // draggable_modal: true, //The modal window can be dragged by the header.
             style_formats_autohide: true, //hides of styles that can’t be applied to the current context
             branding: false,
             // statusbar: false,
@@ -121,7 +125,7 @@ const TinyMCE = ({ id,content="teest",onEditorChange }) => {
               "autosave directionality fullscreen",
               "save template quickbars tabfocus textpattern",
               // "imagetools", // cloud functionality // moving to premium
-              // "autoresize", //This plugin automatically resizes the editor to the content inside it // needs max height
+              "autoresize", //This plugin automatically resizes the editor to the content inside it // needs max height
               // "spellchecker casechange checklist export linkchecker mentions drive rtc", // premium
             ],
             // autoresize_bottom_margin: 100,//autoresize
@@ -136,9 +140,9 @@ const TinyMCE = ({ id,content="teest",onEditorChange }) => {
 
             // ...paste_style,
             // ...textpattern_style,
-            ...quickbar_style,
+            // ...quickbar_style,
             ...image_style, // upload image
-            ...templates_style, // templates
+            ...templates_style('rabin',random_pin), // templates
             ...link_style, // link
             ...media_style, // media
             ...color_style, // color
@@ -147,15 +151,16 @@ const TinyMCE = ({ id,content="teest",onEditorChange }) => {
             ...custom_button, // custom button
             ...toolbar_style,
 
-            font_formats:
-              " Oswald; Andale Mono=andale mono,times; Arial=arial,helvetica,sans-serif; Arial Black=arial black,avant garde; Book Antiqua=book antiqua,palatino; Comic Sans MS=comic sans ms,sans-serif; Courier New=courier new,courier; Georgia=georgia,palatino; Helvetica=helvetica; Impact=impact,chicago; Symbol=symbol; Tahoma=tahoma,arial,helvetica,sans-serif; Terminal=terminal,monaco; Times New Roman=times new roman,times; Trebuchet MS=trebuchet ms,geneva; Verdana=verdana,geneva; Webdings=webdings; Wingdings=wingdings,zapf dingbats",
 
             // content_css: "dark",
             // content_css_cors: true,//the editor will add a crossorigin="anonymous" attribute
             // importcss_append: true,
             ...content_style,
 
+            font_formats:
+              " Oswald; Andale Mono=andale mono,times; Arial=arial,helvetica,sans-serif; Arial Black=arial black,avant garde; Book Antiqua=book antiqua,palatino; Comic Sans MS=comic sans ms,sans-serif; Courier New=courier new,courier; Georgia=georgia,palatino; Helvetica=helvetica; Impact=impact,chicago; Symbol=symbol; Tahoma=tahoma,arial,helvetica,sans-serif; Terminal=terminal,monaco; Times New Roman=times new roman,times; Trebuchet MS=trebuchet ms,geneva; Verdana=verdana,geneva; Webdings=webdings; Wingdings=wingdings,zapf dingbats",
             // "@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap'); body { font-family: Oswald; }", // default
+            
             fontsize_formats:
               "8pt 9pt 10pt 11pt 12pt 13pt 14pt 15pt 16pt 17pt 18pt 19pt 20pt 22pt 24pt 36pt 48pt 60pt 72pt 96pt",
             lineheight_formats: "0.8 0.9 1 1.1 1.2 1.3 1.4 1.5 2",

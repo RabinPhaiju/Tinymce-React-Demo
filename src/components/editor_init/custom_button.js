@@ -6,7 +6,7 @@ const custom_button = {
 
     /* example, adding a toolbar menu button */
     editor.ui.registry.addMenuButton("myCustomToolbarButton", {
-      text: "My button",
+      text: "Component",
       fetch: function (callback) {
         var items = [
           {
