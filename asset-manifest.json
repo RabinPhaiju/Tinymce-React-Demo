@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.cf1a969f.css",
-    "main.js": "/static/js/main.edfcba20.js",
-    "static/js/453.61f6390d.chunk.js": "/static/js/453.61f6390d.chunk.js",
-    "static/media/import.png": "/static/media/import.4b78f9de584998e40b70.png",
-    "index.html": "/index.html",
-    "main.cf1a969f.css.map": "/static/css/main.cf1a969f.css.map",
-    "main.edfcba20.js.map": "/static/js/main.edfcba20.js.map",
-    "453.61f6390d.chunk.js.map": "/static/js/453.61f6390d.chunk.js.map"
+    "main.css": "/Tinymce-React-Demo/static/css/main.cf1a969f.css",
+    "main.js": "/Tinymce-React-Demo/static/js/main.38c1251f.js",
+    "static/js/453.61f6390d.chunk.js": "/Tinymce-React-Demo/static/js/453.61f6390d.chunk.js",
+    "static/media/import.png": "/Tinymce-React-Demo/static/media/import.4b78f9de584998e40b70.png",
+    "index.html": "/Tinymce-React-Demo/index.html",
+    "main.cf1a969f.css.map": "/Tinymce-React-Demo/static/css/main.cf1a969f.css.map",
+    "main.38c1251f.js.map": "/Tinymce-React-Demo/static/js/main.38c1251f.js.map",
+    "453.61f6390d.chunk.js.map": "/Tinymce-React-Demo/static/js/453.61f6390d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cf1a969f.css",
-    "static/js/main.edfcba20.js"
+    "static/js/main.38c1251f.js"
   ]
 }
