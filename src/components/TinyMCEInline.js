@@ -14,9 +14,9 @@ function TinyMCEInline() {
       1500
     )
   }, [])
-  const handleEditorChange = (newText) => {
-    console.log("Content was updated:", newText)
-  }
+  // const handleEditorChange = (newText) => {
+  //   console.log("Content was updated:", newText)
+  // }
   const save = () => {
     console.log("save")
     if (editorRef.current) {

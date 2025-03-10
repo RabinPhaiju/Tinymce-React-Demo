@@ -1,6 +1,6 @@
 import React,{useState} from "react"
 import TinyMCE from "./components/TinyMCE"
-import TinyMCEInline from "./components/TinyMCEInline"
+// import TinyMCEInline from "./components/TinyMCEInline"
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import "./App.css"
 import { useEffect } from "react"
@@ -27,27 +27,27 @@ const getListStyle = isDraggingOver => ({
 
 function App() {
 
-  const initItems = [
-    {id:'one',content:'one'},
-    {id:'two',content:'two'},
-    {id:'three',content:'three'},
-    {id:'four',content:'four'},
-    {id:'five',content:'five'},
-    {id:'six',content:'six'},
-    {id:'seven',content:'seven'},
-    {id:'eight',content:'eight'},
-    {id:'nine',content:'nine'},
-    {id:'10',content:'10'},
-    {id:'11',content:'11'},
-    {id:'12',content:'12'},
-    {id:'13',content:'13'},
-    {id:'14',content:'14'},
-    {id:'15',content:'15'},
-    {id:'16',content:'16'},
-    {id:'17',content:'17'},
-    {id:'18',content:'18'},
-    {id:'19',content:'19'},
-    {id:'20',content:'20'}  ]
+  // const initItems = [
+  //   {id:'one',content:'one'},
+  //   {id:'two',content:'two'},
+  //   {id:'three',content:'three'},
+  //   {id:'four',content:'four'},
+  //   {id:'five',content:'five'},
+  //   {id:'six',content:'six'},
+  //   {id:'seven',content:'seven'},
+  //   {id:'eight',content:'eight'},
+  //   {id:'nine',content:'nine'},
+  //   {id:'10',content:'10'},
+  //   {id:'11',content:'11'},
+  //   {id:'12',content:'12'},
+  //   {id:'13',content:'13'},
+  //   {id:'14',content:'14'},
+  //   {id:'15',content:'15'},
+  //   {id:'16',content:'16'},
+  //   {id:'17',content:'17'},
+  //   {id:'18',content:'18'},
+  //   {id:'19',content:'19'},
+  //   {id:'20',content:'20'}  ]
 
   const newItem = [{id:'one',content:'test'}]
 
